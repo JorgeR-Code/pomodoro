@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { IntervalService } from 'src/app/services/interval.service';
 
 @Component({
   selector: 'app-pomodoro',
@@ -7,8 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PomodoroComponent implements OnInit {
 
-  @Output() timeMinutes: EventEmitter<number> = new EventEmitter();
-  @Output() timeSeconds: EventEmitter<number> = new EventEmitter();
+  ciclos: number = 0;
 
   iniciar: string = "";
   pausar: string = "p-disabled";
@@ -22,9 +23,15 @@ export class PomodoroComponent implements OnInit {
   intervalm: any = 0;
 
 
-  constructor() { }
+  constructor(private clearIntervalService: IntervalService, private _router: Router) { }
 
   ngOnInit(): void {
+    console.log('arre')
+    this.clearIntervalService.observerInterval$.subscribe(
+      () => {
+        this.clear();
+      }
+    )
   }
 
 
@@ -32,15 +39,16 @@ export class PomodoroComponent implements OnInit {
     this.iniciar = "p-disabled";
     this.pausar= "";
 
-
       this.interval = setInterval(() => {
-        console.log(this.interval);
         this.minutes = Number(this.padLeft(this.date.getMinutes() + "")) ;
         this.seconds = Number(this.padLeft(this.date.getSeconds() + "")) ;
         this.date = new Date(this.date.getTime() - 1000);
 
-        this.timeMinutes.emit(this.seconds);
-        this.timeSeconds.emit(this.minutes);
+        if(this.minutes == 24 && this.seconds == 50){
+          console.log('cambio')
+          this.clear();
+          this._router.navigate(['/break1'])
+        }
 
       },1000)
 
@@ -49,6 +57,10 @@ export class PomodoroComponent implements OnInit {
   pauseTime(){
     this.iniciar = "";
     this.pausar= "p-disabled";
+    clearInterval(this.interval);
+  }
+
+  clear(){
     clearInterval(this.interval);
   }
 

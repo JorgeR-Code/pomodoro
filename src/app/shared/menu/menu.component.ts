@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IntervalService } from 'src/app/services/interval.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private clearIntervalService: IntervalService ) { }
 
   ngOnInit(): void {
+  }
+
+  stopInterval(){
+    this.clearIntervalService.clearInter();
   }
 
 }

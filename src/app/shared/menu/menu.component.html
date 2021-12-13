@@ -2,11 +2,11 @@
   <div class="flex flex-column justify-content-end w-full md:w-8 lg:w-8">
     <div class="flex flex-row justify-content-center align-items-center mb-0">
 
-      <p-button #first routerLink="" routerLinkActive="p-disabled" [routerLinkActiveOptions]="{exact: true}" type="button" label="Pomodoro"  styleClass="p-button-text p-button-sm p-button-plain"></p-button>
+      <p-button #first routerLink="" routerLinkActive="p-disabled" [routerLinkActiveOptions]="{exact: true}" type="button" label="Pomodoro"  styleClass="p-button-text p-button-sm p-button-plain" (onClick)="stopInterval()"></p-button>
 
-      <p-button routerLink="break1" routerLinkActive="p-disabled" type="button" label="Descanso 1" styleClass="p-button-text mx-0 md:mx-8 lg:mx-8 p-button-sm p-button-plain"></p-button>
+      <p-button routerLink="break1" routerLinkActive="p-disabled" type="button" label="Descanso 1" styleClass="p-button-text mx-0 md:mx-8 lg:mx-8 p-button-sm p-button-plain" (onClick)="stopInterval()"></p-button>
 
-      <p-button routerLink="break2" routerLinkActive="p-disabled" type="button" label="Descanso 2" styleClass=" p-button-text p-button-sm p-button-plain"></p-button>
+      <p-button routerLink="break2" routerLinkActive="p-disabled" type="button" label="Descanso 2" styleClass=" p-button-text p-button-sm p-button-plain" (onClick)="stopInterval()"></p-button>
     </div>
 
     <div class="flex flex-row mt-0">

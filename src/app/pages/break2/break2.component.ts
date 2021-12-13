@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { IntervalService } from 'src/app/services/interval.service';
 
 @Component({
   selector: 'app-break2',
@@ -6,9 +7,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./break2.component.scss']
 })
 export class Break2Component implements OnInit {
-
-  @Output() timeMinutes: EventEmitter<number> = new EventEmitter();
-  @Output() timeSeconds: EventEmitter<number> = new EventEmitter();
 
   iniciar: string = "";
   pausar: string = "p-disabled";
@@ -22,9 +20,16 @@ export class Break2Component implements OnInit {
   intervalm: any = 0;
 
 
-  constructor() { }
+
+  constructor(private clearIntervalService: IntervalService) { }
 
   ngOnInit(): void {
+
+    this.clearIntervalService.observerInterval$.subscribe(
+      () => {
+        this.clear();
+      }
+    )
   }
 
 
@@ -34,13 +39,10 @@ export class Break2Component implements OnInit {
 
 
       this.interval = setInterval(() => {
-        console.log(this.interval);
+
         this.minutes = Number(this.padLeft(this.date.getMinutes() + "")) ;
         this.seconds = Number(this.padLeft(this.date.getSeconds() + "")) ;
         this.date = new Date(this.date.getTime() - 1000);
-
-        this.timeMinutes.emit(this.seconds);
-        this.timeSeconds.emit(this.minutes);
 
       },1000)
 
@@ -52,5 +54,8 @@ export class Break2Component implements OnInit {
     clearInterval(this.interval);
   }
 
+  clear(){
+    clearInterval(this.interval);
+  }
 
 }
