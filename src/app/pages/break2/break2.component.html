@@ -1,1 +1,15 @@
-<p>break2 works!</p>
+<div class="flex flex-column justify-content-center align-items-center align-content-center w-full h-full">
+  <p-knob [(ngModel)]="minutes" valueTemplate="{value} min" [strokeWidth]="2" [size]="200" [max]="20" [readonly]="true" class="mt-8 mb-0" valueColor="var(--purple-600)">
+  </p-knob>
+
+  <p-knob [(ngModel)]="seconds" valueTemplate="{value} s." [strokeWidth]="5" [size]="80" [max]="60" [readonly]="true" class="seg mt-0" valueColor="var(--purple-600)"></p-knob>
+
+<div class="flex flex-row w-full justify-content-center align-items-center">
+
+  <p-button type="button" label="Iniciar" (onClick)="startTimer()" [class]="iniciar" styleClass="p-button-rounded mr-3" ></p-button>
+
+  <p-button type="button" label="Pausar" (onClick)="pauseTime()" [class]="pausar" styleClass="p-button-rounded ml-3 p-button-warning"></p-button>
+
+
+</div>
+</div>
