@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { PomodoroComponent } from './pomodoro/pomodoro.component';
 import { Break1Component } from './break1/break1.component';
 import { Break2Component } from './break2/break2.component';
+import { PrimeNGModule } from '../prime-ng/prime-ng.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +15,9 @@ import { Break2Component } from './break2/break2.component';
     Break2Component
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PrimeNGModule,
+    FormsModule
   ],
   exports:[
     PomodoroComponent,
