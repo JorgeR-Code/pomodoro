@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { IntervalService } from 'src/app/services/interval.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class Break2Component implements OnInit {
 
 
 
-  constructor(private clearIntervalService: IntervalService) { }
+  constructor(private clearIntervalService: IntervalService, private _router: Router) { }
 
   ngOnInit(): void {
 
@@ -34,6 +35,7 @@ export class Break2Component implements OnInit {
 
 
   startTimer() {
+    this.playStart();
     this.iniciar = "p-disabled";
     this.pausar= "";
 
@@ -43,6 +45,14 @@ export class Break2Component implements OnInit {
         this.minutes = Number(this.padLeft(this.date.getMinutes() + "")) ;
         this.seconds = Number(this.padLeft(this.date.getSeconds() + "")) ;
         this.date = new Date(this.date.getTime() - 1000);
+
+        if(this.minutes == 19 && this.seconds == 55){
+
+          this.playAudio();
+          console.log('cambio a pomodoro')
+          this.clear();
+          this._router.navigate([''])
+        }
 
       },1000)
 
@@ -56,6 +66,19 @@ export class Break2Component implements OnInit {
 
   clear(){
     clearInterval(this.interval);
+  }
+
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../../../assets/sound/sound.mp3";
+    audio.load();
+    audio.play();
+  }
+  playStart(){
+    let audio = new Audio();
+    audio.src = "../../../assets/sound/click2.mp3";
+    audio.load();
+    audio.play();
   }
 
 }

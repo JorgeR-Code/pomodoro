@@ -9,7 +9,7 @@ import { IntervalService } from 'src/app/services/interval.service';
 })
 export class PomodoroComponent implements OnInit {
 
-  ciclos: number = 0;
+  cycles: number = 0;
 
   iniciar: string = "";
   pausar: string = "p-disabled";
@@ -26,7 +26,8 @@ export class PomodoroComponent implements OnInit {
   constructor(private clearIntervalService: IntervalService, private _router: Router) { }
 
   ngOnInit(): void {
-    console.log('arre')
+    this.cycles = this.clearIntervalService.getCycles();
+    console.log(this.cycles);
     this.clearIntervalService.observerInterval$.subscribe(
       () => {
         this.clear();
@@ -36,6 +37,7 @@ export class PomodoroComponent implements OnInit {
 
 
   startTimer() {
+    this.playStart();
     this.iniciar = "p-disabled";
     this.pausar= "";
 
@@ -50,6 +52,26 @@ export class PomodoroComponent implements OnInit {
           this._router.navigate(['/break1'])
         }
 
+
+        if(this.minutes == 24 && this.seconds == 55){
+
+          if(this.cycles % 4 == 0){
+            this.cycles ++;
+            this.clearIntervalService.setCycles(this.cycles);
+            console.log('cambio a break2')
+            this.clear();
+            this._router.navigate(['/break2'])
+
+          }else{
+            this.playAudio();
+            this.cycles ++;
+            this.clearIntervalService.setCycles(this.cycles);
+            console.log('cambio a break1')
+            this.clear();
+            this._router.navigate(['break1'])
+
+          }}
+
       },1000)
 
   }
@@ -62,6 +84,20 @@ export class PomodoroComponent implements OnInit {
 
   clear(){
     clearInterval(this.interval);
+  }
+
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../../../assets/sound/sound.mp3";
+    audio.load();
+    audio.play();
+  }
+
+  playStart(){
+    let audio = new Audio();
+    audio.src = "../../../assets/sound/click2.mp3";
+    audio.load();
+    audio.play();
   }
 
 }
