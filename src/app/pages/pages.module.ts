@@ -14,6 +14,11 @@ import { Break2Component } from './break2/break2.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    PomodoroComponent,
+    Break1Component,
+    Break2Component
   ]
 })
 export class PagesModule { }
