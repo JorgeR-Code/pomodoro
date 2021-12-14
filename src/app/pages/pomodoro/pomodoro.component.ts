@@ -27,7 +27,6 @@ export class PomodoroComponent implements OnInit {
 
   ngOnInit(): void {
     this.cycles = this.clearIntervalService.getCycles();
-    console.log(this.cycles);
     this.clearIntervalService.observerInterval$.subscribe(
       () => {
         this.clear();

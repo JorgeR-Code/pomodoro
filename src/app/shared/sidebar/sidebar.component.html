@@ -10,10 +10,13 @@
         <h3>Tema</h3>
 
         <p-selectButton [options]="stateOptions" [(ngModel)]="obscuro" optionLabel="label" optionValue="value" (onOptionClick)="changeTheme($event)">
+
           <ng-template let-item>
             <i [class]="item.icon"></i>
-        </ng-template>
+          </ng-template>
+
         </p-selectButton>
+
       </div>
 
     </div>

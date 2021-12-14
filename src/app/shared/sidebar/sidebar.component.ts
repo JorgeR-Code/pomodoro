@@ -8,7 +8,6 @@ import { ThemeService } from 'src/app/services/theme.service';
 })
 export class SidebarComponent implements OnInit {
 
-  @Output() theme = new EventEmitter;
   visibleSidebar1: boolean = false;
   stateOptions: any[];
   obscuro: boolean = false;

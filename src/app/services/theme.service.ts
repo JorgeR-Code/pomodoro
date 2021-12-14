@@ -16,9 +16,4 @@ export class ThemeService {
       themeLink.href = theme + '.css';
     }
   }
-
-
-
-
-
 }
