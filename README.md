@@ -30,10 +30,12 @@ Requeriments:
 - Set a theme customizer.
 
 
-Estimated development time: 48 hrs.
+- Estimated development time: 48 hrs.
+
 Real development time: 24 hrs.
 
-Estimated build time: 30 seg.
+- Estimated build time: 30 seg.
+
 Real time of build: 24 seg.
 
 ### Figma
