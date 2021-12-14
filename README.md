@@ -43,7 +43,7 @@ Real time of build: 24 seg.
 ![](./screenshots/figma.svg)
 
 ### Solution
-![](./screenshots/solutionDesktop.PNG)
+![](./screenshots/desktop.PNG)
 ![](./screenshots/sidebar.PNG)
 ![](./screenshots/mobile.PNG)
 
