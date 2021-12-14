@@ -44,8 +44,8 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  // changeTheme(valor: any){
-  //   this.obscuro = valor.option.value;
-  // }
+  otherThemes(value: string){
+    this.themeService.switchTheme(value);
+  }
 
 }
