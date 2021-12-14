@@ -46,7 +46,7 @@ export class Break2Component implements OnInit {
         this.seconds = Number(this.padLeft(this.date.getSeconds() + "")) ;
         this.date = new Date(this.date.getTime() - 1000);
 
-        if(this.minutes == 19 && this.seconds == 55){
+        if(this.minutes == 0 && this.seconds == 0){
 
           this.playAudio();
           this.clear();

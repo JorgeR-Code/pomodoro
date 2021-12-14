@@ -46,15 +46,11 @@ export class PomodoroComponent implements OnInit {
         this.seconds = Number(this.padLeft(this.date.getSeconds() + "")) ;
         this.date = new Date(this.date.getTime() - 1000);
 
-        if(this.minutes == 24 && this.seconds == 50){
-          this.clear();
-          this._router.navigate(['/break1'])
-        }
-
 
         if(this.minutes == 0 && this.seconds == 0){
 
           if(this.cycles % 4 == 0){
+            this.playAudio();
             this.cycles ++;
             this.clearIntervalService.setCycles(this.cycles);
             this.clear();

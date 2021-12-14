@@ -46,7 +46,7 @@ export class Break1Component implements OnInit {
 
 
 
-        if(this.minutes == 4 && this.seconds == 55){
+        if(this.minutes == 0 && this.seconds == 0){
 
           this.playAudio();
           this.clear();
