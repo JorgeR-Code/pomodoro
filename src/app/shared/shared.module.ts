@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { RouterModule } from '@angular/router';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
 @NgModule({
   declarations: [
-    MenuComponent
+    MenuComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    SidebarComponent
   ]
 })
 export class SharedModule { }

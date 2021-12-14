@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ButtonModule} from 'primeng/button';
 import {StyleClassModule} from 'primeng/styleclass';
 import {KnobModule} from 'primeng/knob';
+import {SidebarModule} from 'primeng/sidebar';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {KnobModule} from 'primeng/knob';
   exports:[
     ButtonModule,
     StyleClassModule,
-    KnobModule
+    KnobModule,
+    SidebarModule
 
   ]
 })
