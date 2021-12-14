@@ -4,6 +4,7 @@ import {ButtonModule} from 'primeng/button';
 import {StyleClassModule} from 'primeng/styleclass';
 import {KnobModule} from 'primeng/knob';
 import {SidebarModule} from 'primeng/sidebar';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {SidebarModule} from 'primeng/sidebar';
     ButtonModule,
     StyleClassModule,
     KnobModule,
-    SidebarModule
+    SidebarModule,
+    SelectButtonModule
 
   ]
 })

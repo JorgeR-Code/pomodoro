@@ -47,18 +47,16 @@ export class PomodoroComponent implements OnInit {
         this.date = new Date(this.date.getTime() - 1000);
 
         if(this.minutes == 24 && this.seconds == 50){
-          console.log('cambio')
           this.clear();
           this._router.navigate(['/break1'])
         }
 
 
-        if(this.minutes == 24 && this.seconds == 55){
+        if(this.minutes == 0 && this.seconds == 0){
 
           if(this.cycles % 4 == 0){
             this.cycles ++;
             this.clearIntervalService.setCycles(this.cycles);
-            console.log('cambio a break2')
             this.clear();
             this._router.navigate(['/break2'])
 
@@ -66,7 +64,6 @@ export class PomodoroComponent implements OnInit {
             this.playAudio();
             this.cycles ++;
             this.clearIntervalService.setCycles(this.cycles);
-            console.log('cambio a break1')
             this.clear();
             this._router.navigate(['break1'])
 

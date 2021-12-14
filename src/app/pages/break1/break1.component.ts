@@ -49,7 +49,6 @@ export class Break1Component implements OnInit {
         if(this.minutes == 4 && this.seconds == 55){
 
           this.playAudio();
-          console.log('cambio a pomodoro')
           this.clear();
           this._router.navigate([''])
         }
